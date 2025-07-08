@@ -1,25 +1,18 @@
 import { useState } from 'react'
-import './App.css'
+import './styles/App.css'
 import React from 'react'
-import {motion} from 'framer-motion'
+import Plane from './components/plane.jsx'
+import Header from './components/header.jsx'
+import StarsBackground from './components/StarsBackground.jsx'
+
 
 const App = () => {
   return (
     <div className='container'>
+      <Header/>
       <div className='home'>
-        <motion.div className='plane'
-          animate={{
-            x:[1400,370],
-            y:[-20,20]
-          }}
-          transition={{
-            duration: 5,
-            ease: 'easeInOut',
-            delay: 0.2
-          }}>
-            
-          <img src="./plane-br.png" alt="noimg" height={200}/>
-        </motion.div>
+        <StarsBackground />
+        <Plane/>
       </div>
     </div>
   )

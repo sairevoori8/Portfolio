@@ -6,16 +6,18 @@ const plane = () => {
     <div>
       <motion.div className='plane'
                 animate={{
-                  x:[1400,370],
-                  y:[-20,20]
+                  x:[500,510],
+                  y:[-10,10]
                 }}
                 transition={{
-                  duration: 5,
+                  duration: 3,
                   ease: 'easeInOut',
-                  delay: 0.2
+                  repeat: Infinity,
+                  repeatType: 'reverse'
+                  
                 }}>
                   
-                <img src="./plane-br.png" alt="noimg" height={200}/>
+                <img src="./plane-br.png" alt="noimg" height={130}/>
               </motion.div>
     </div>
   )
