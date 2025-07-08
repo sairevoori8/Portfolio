@@ -1,8 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-const NUM_FALLING_STARS = 3
-const NUM_GLOWING_STARS = 10
+const NUM_GLOWING_STARS = 25
 
 // Generate random positions for glowing stars
 const glowingStars = Array.from({ length: NUM_GLOWING_STARS }, (_, i) => ({
@@ -10,15 +9,9 @@ const glowingStars = Array.from({ length: NUM_GLOWING_STARS }, (_, i) => ({
   top: `${Math.random() * 100}%`,
   left: `${Math.random() * 100}%`,
   size: `${Math.random() * 2 + 1}px`,
-  glow: Math.random() * 0.7 + 0.3,
+  glow: Math.random() * 0.9 + 0.3,
 }))
 
-// Generate random positions and delays for falling stars
-const fallingStars = Array.from({ length: NUM_FALLING_STARS }, (_, i) => ({
-  id: i,
-  left: `${Math.random() * 100}%`,
-  delay: Math.random() * 5,
-}))
 
 const StarsBackground = () => (
   <div
@@ -56,33 +49,6 @@ const StarsBackground = () => (
           repeat: Infinity,
           repeatType: 'reverse',
           delay: Math.random() * 2,
-        }}
-      />
-    ))}
-
-    {/* Falling stars */}
-    {fallingStars.map(star => (
-      <motion.div
-        key={star.id}
-        style={{
-          position: 'absolute',
-          top: '-5vh',
-          left: star.left,
-          width: '2px',
-          height: '40px',
-          background: 'linear-gradient(180deg, yellow, rgba(255,255,255,0))',
-          borderRadius: '2px',
-          transform: 'rotate(-15deg)',
-          opacity: 0.7,
-        }}
-        animate={{
-          y: ['0vh', '40vh'],
-          opacity: [0.7, 0.9, 0],
-        }}
-        transition={{
-          duration: Math.random() * 2 + 2,
-          repeat: Infinity,
-          delay: star.delay,
         }}
       />
     ))}
